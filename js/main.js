@@ -1,58 +1,109 @@
-window.onload = function(){
-    body = document.querySelector('body');
-    body.style.display = 'block';
-};
+/**
+ * main Object
+ * @return this
+ */
+function main()
+{
 
-var menu = Meny.create({
-    // The element that will be animated in from off screen
-    menuElement: document.querySelector('.meny'),
+    /**
+     * Aplicação do efeito 3d no menu
+     * @param  {[String]} menuSelector    Elemento que será aplicado o meu
+     * @param  {[String]} contentSelector Elemento que contém o conteúdo
+     * @return {[Void]}
+     */
+    let set3DMeny = function (menuSelector, contentSelector)
+    {
 
-    // The contents that gets pushed aside while Meny is active
-    contentsElement: document.querySelector('.content'),
+        const iconMenu = document.querySelector('.icon-menu');
 
-    // The alignment of the menu (top/right/bottom/left)
-    position: 'left',
-    threshold: 40,
-});
+        let toggleIconMenu = function () 
+        {
 
-var supports3DTransforms =  document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined;
+            $(iconMenu).children('i').toggleClass('fa-bars fa-arrow-right');    
+        }
 
-function linkify( selector ) {
-    if( supports3DTransforms ) {
+        let menu = Meny.create({
+            // The element that will be animated in from off screen
+            menuElement: document.querySelector(menuSelector),
 
-        var nodes = document.querySelectorAll( selector );
+            // The contents that gets pushed aside while Meny is active
+            contentsElement: document.querySelector(contentSelector),
 
-        for( var i = 0, len = nodes.length; i < len; i++ ) {
-            var node = nodes[i];
+            // The alignment of the menu (top/right/bottom/left)
+            position: 'left',
+            threshold: 40,
+        });
 
-            if( !node.className || !node.className.match( /roll/g ) ) {
-                node.className += ' roll';
-                node.innerHTML = '<span data-title="'+ node.text +'">' + node.innerHTML + '</span>';
+        iconMenu.addEventListener('click', menu.open);
+
+        menu.addEventListener('open', toggleIconMenu);
+
+        menu.addEventListener('closed', toggleIconMenu);
+    }
+
+    let maximageInit = function ()
+    {
+
+        $("#background-content").maximage({
+            cycleOptions: {
+                speed: 800,
+                timeout: 8000
             }
+        });
+
+        /**
+         * ainda não entendi pq o maximage precisa disso
+         * @param {[type]} window Interface window
+         */
+        window.onload = function () 
+        {
+            document.querySelector('body').style.display = 'block';
         };
     }
-}
 
-linkify( '.linkify' );
+    /**
+     * Aplica o efeito de roll nos links selecionados
+     * @return void
+     */
+    let rollinkify = function () {
+        
+        let supports3DTransforms =  document.body.style['webkitPerspective'] !== undefined || 
+                                    document.body.style['MozPerspective'] !== undefined;
+        
+        if( supports3DTransforms ) {
 
-;(function($){
-    $background = $("#background-image");
-    $background.maximage({
-        cycleOptions: {
-            speed: 800,
-            timeout: 8000
+            let nodes = document.querySelectorAll('.rollinkify');
+
+            for(let  i = 0, len = nodes.length; i < len; i++ ) {
+                let node = nodes[i];
+
+                if( !node.className || !node.className.match( /roll/g ) ) {
+                    node.className += ' roll';
+                    node.innerHTML = '<span data-title="'+ node.text +'">' + node.innerHTML + '</span>';
+                }
+            };
         }
-    });
+    };
 
-    menu.addEventListener( 'open', function() {
-        $('.icon-menu').children('i').toggleClass('fa-bars fa-close')
-    });
 
-    menu.addEventListener( 'closed', function() {
-        $('.icon-menu').children('i').toggleClass('fa-bars fa-close')
-    });
+    /**
+     * Método que inicializa a Classe
+     * @return void
+     */
+     this.init = function () {
+        try {
 
-    $('.icon-menu').on('click',function(){
-        menu.open();
-    });
-})(jQuery);
+            maximageInit();
+
+            set3DMeny('.meny', '.content');
+
+            rollinkify();
+        } catch (e) {
+            console.error(e);
+        }
+     };
+
+     return this;
+};
+
+main().init();
