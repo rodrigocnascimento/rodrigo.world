@@ -1,22 +1,19 @@
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
-
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
 html {
-    background-image: url('img/html-bg.jpg');
     color: #222;
+    background-color: #222;
     font-size: 1em;
     line-height: 1.4;
 }
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -29,12 +26,10 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 /*
  * A better looking default horizontal rule
  */
@@ -47,7 +42,6 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
@@ -62,7 +56,6 @@ svg,
 video {
     vertical-align: middle;
 }
-
 /*
  * Remove default fieldset styles.
  */
@@ -72,7 +65,6 @@ fieldset {
     margin: 0;
     padding: 0;
 }
-
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -80,7 +72,6 @@ fieldset {
 textarea {
     resize: vertical;
 }
-
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
@@ -91,11 +82,9 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
 /*
  * Hide visually and from screen readers
  */
@@ -103,7 +92,6 @@ textarea {
 .hidden {
     display: none !important;
 }
-
 /*
  * Hide only visually, but have it available for screen readers:
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -119,7 +107,6 @@ textarea {
     position: absolute;
     width: 1px;
 }
-
 /*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
@@ -135,7 +122,6 @@ textarea {
     position: static;
     width: auto;
 }
-
 /*
  * Hide visually and from screen readers, but maintain layout
  */
@@ -143,7 +129,6 @@ textarea {
 .invisible {
     visibility: hidden;
 }
-
 /*
  * Clearfix: contain floats
  *
@@ -158,14 +143,15 @@ textarea {
 
 .clearfix:before,
 .clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " ";
+    /* 1 */
+    
+    display: table;
+    /* 2 */
 }
-
 .clearfix:after {
     clear: both;
 }
-
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -175,14 +161,12 @@ textarea {
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
-
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
-
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -196,152 +180,147 @@ textarea {
     *:first-letter,
     *:first-line {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
+        color: #000 !important;
+        /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
+        
         box-shadow: none !important;
         text-shadow: none !important;
     }
-
     a,
     a:visited {
         text-decoration: underline;
     }
-
     a[href]:after {
         content: " (" attr(href) ")";
     }
-
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
-
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
+    
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
     }
-
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
-
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
+    
     thead {
         display: table-header-group;
     }
-
     tr,
     img {
         page-break-inside: avoid;
     }
-
     img {
         max-width: 100% !important;
     }
-
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
-
     h2,
     h3 {
         page-break-after: avoid;
     }
 }
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-a{
+a {
     text-decoration: none;
-    color: #f1a700;}
-
-a:hover{
+    color: #f1a700;
+}
+a:hover {
     text-decoration: none;
-    color: #222;}
-
+    color: #222;
+}
 ul {
-    padding: 0; margin: 0;}
-
-.menu{list-style-type: none}
-    .menu li a {
-        width: 300px;
-        background-color: #222;
-        font-family: 'Bree Serif', Arial, serif;
-        text-decoration: none;
-        color: white;}
-
-        .menu li > .roll span {
-            cursor: pointer;
-            padding: 15px 0px 13px 15px;
-            width: 300px;}
-
-        .menu li > .roll:hover span {
-            padding: 15px 0px 13px 15px;
-            width: 300px;}
-
-        .menu li > .roll span:after {
-            color: #edd311;
-            background: #222;
-            padding: 15px 0px 13px 15px;
-            width: 300px;}
-
-.text-center{
-    text-align: center;}
-
-.social-icons {
-    background-color: #3a3a3a;}
-
-   .social-icons a {
-        color: #222;
-        padding: 32px;}
-
-        .social-icons a:hover {
-            text-decoration: none;
-            color:#edd311;}
-
-        .mailto a:hover {
-            text-decoration: none;
-            color:#edd311;}            
-.bree{
+    padding: 0;
+    margin: 0;
+}
+.menu {
+    list-style-type: none
+}
+.menu li a {
+    width: 300px;
+    background-color: #222;
     font-family: 'Bree Serif', Arial, serif;
-    font-weight: 400;}
-
-    .bree56pt{
-        font-family: 'Bree Serif', Arial, serif;
-        font-weight: 400;
-        font-size: 56px;}
-
-.text-white-bg{
+    text-decoration: none;
+    color: white;
+}
+.menu li > .roll span {
+    cursor: pointer;
+    padding: 15px 0px 13px 15px;
+    width: 300px;
+}
+.menu li > .roll:hover span {
+    padding: 15px 0px 13px 15px;
+    width: 300px;
+}
+.menu li > .roll span:after {
+    color: #edd311;
+    background: #222;
+    padding: 15px 0px 13px 15px;
+    width: 300px;
+}
+.text-center {
+    text-align: center;
+}
+.social-icons {
+    background-color: #3a3a3a;
+}
+.social-icons a {
+    color: #222;
+    padding: 32px;
+}
+.social-icons a:hover {
+    text-decoration: none;
+    color: #edd311;
+}
+.mailto a:hover {
+    text-decoration: none;
+    color: #edd311;
+}
+.bree {
+    font-family: 'Bree Serif', Arial, serif;
+    font-weight: 400;
+}
+.bree56pt {
+    font-family: 'Bree Serif', Arial, serif;
+    font-weight: 400;
+    font-size: 56px;
+}
+.text-white-bg {
     background-color: white;
-    width: 100%;}
-
-.text-yellow{
-    color: #edd311;}
-    
-.text-green{
-    color: #5ea734;}
-
-.greeting{
+    width: 100%;
+}
+.text-yellow {
+    color: #edd311;
+}
+.text-green {
+    color: #5ea734;
+}
+.greeting {
     position: absolute;
     margin-top: 20%;
-    left: 55px;}
-
-#logo{
+    left: 55px;
+}
+#logo {
     width: 74px;
     height: 78px;
     background-color: white;
@@ -350,29 +329,60 @@ ul {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    text-align: center;}
-
-
-.icon-menu{
+    text-align: center;
+}
+.icon-menu {
     margin: 45px 45px;
     float: left;
-    cursor: pointer;}
-
-.icon-menu > i{
-    margin-left: 35px;}
-
-.meny{
-    background-color: #222;}
-
-
-.conteudo{
-    position: absolute;}
-
-.title{
+    cursor: pointer;
+}
+.icon-menu > i {
+    margin-left: 35px;
+}
+.meny {
+    background-color: #222;
+}
+.conteudo {
+    position: absolute;
+}
+.title {
     position: absolute;
     top: 25px;
     left: 55px;
     background-color: #edd311;
     color: #414240;
     padding: 5px;
+}
+.roll {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    -webkit-perspective: 400px;
+    -moz-perspective: 400px;
+    -webkit-perspective-origin: 100% 100%;
+    -moz-perspective-origin: 100% 100%;
+}
+.roll span {
+    display: block;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+.roll:hover span {
+    -webkit-transform: translate3d( 0px, 0px, -50px) rotateX( 90deg);
+    -moz-transform: translate3d( 0px, 0px, -50px) rotateX( 90deg);
+}
+.roll span:after {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    -webkit-transform: translate3d( 0px, 50px, 0px) rotateX( -90deg);
+    -moz-transform: translate3d( 0px, 50px, 0px) rotateX( -90deg);
 }
