@@ -72,7 +72,7 @@ function main()
         
         if( supports3DTransforms ) {
 
-            let nodes = document.querySelectorAll('.rollinkify');
+            let nodes = document.querySelectorAll('.linkify');
 
             for(let  i = 0, len = nodes.length; i < len; i++ ) {
                 let node = nodes[i];
