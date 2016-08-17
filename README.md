@@ -1,8 +1,18 @@
-# ROADMAP
-- Rodar o bower para gerenciar os componentes
-- Usar o DocPad para o blog
-- Usar o node para automatizar as tarefas 
-- Criar as páginas que ainda faltam
-- Eastereggs everywhere!
-- Mudar o background para algo do tipo: http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/
-- Criar uma timeline: http://webdesign.tutsplus.com/tutorials/building-a-vertical-timeline-with-css-and-a-touch-of-javascript--cms-26528
+### Plugins ou ferramentas utilizadas
+
+- [HTML5Boilerplate](https://html5boilerplate.com/)
+
+### CSS
+- Normalize
+- Font Awesome
+
+### JS
+- Modernizr
+- [http://lab.hakim.se/meny](http://lab.hakim.se/meny) Vale a pena ser visitado por esse menu maneiro e outros projeto muito bons dele.
+- jQuery* (I know, but I am a lazy bastard :T) 
+	* jquery.cycle.js
+	* maximage
+- vanilla js
+
+## ROADMAP
+	- Criar um script semelhante ao cycle e retirar a dependência do jquery
