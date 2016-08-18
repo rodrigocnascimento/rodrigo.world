@@ -1,9 +1,47 @@
+"use strict";
 /**
  * main Object
  * @return this
  */
-function main()
-{
+ let _main = function ()
+ {
+    
+    let printer = function () {
+        let printerWidth;
+
+        function closePrint() {
+            document.body.removeChild(this.__container__);
+        }
+
+        function setPrint() {
+            this.contentWindow.__container__ = this;
+
+            this.contentWindow.onbeforeunload = closePrint;
+            this.contentWindow.onafterprint = closePrint;
+            this.contentWindow.document.body.style.width = printerWidth;
+            this.contentWindow.focus(); // Required for IE
+            this.contentWindow.print();
+        }
+
+        return {
+            print: function (sURL, bodyWidth) {
+                console.log([sURL, bodyWidth])
+                const oHiddenFrame = document.createElement("iframe");
+                printerWidth = bodyWidth;
+                oHiddenFrame.onload = setPrint;
+                oHiddenFrame.style.visibility = "hidden";
+                oHiddenFrame.style.position = "fixed";
+                oHiddenFrame.style.right = "0";
+                oHiddenFrame.style.bottom = "0";
+                oHiddenFrame.src = sURL;
+
+                if (sURL !== undefined) {
+                    document.body.appendChild(oHiddenFrame);
+                }
+
+            }
+        }
+    }    
 
     /**
      * Aplicação do efeito 3d no menu
@@ -11,15 +49,13 @@ function main()
      * @param  {[String]} contentSelector Elemento que contém o conteúdo
      * @return {[Void]}
      */
-    let set3DMeny = function (menuSelector, contentSelector)
-    {
-
-        const iconMenu = document.querySelector('.icon-menu');
+     let set3DMeny = function (menuSelector, contentSelector)
+     {
 
         let toggleIconMenu = function () 
         {
 
-            $(iconMenu).children('i').toggleClass('fa-bars fa-arrow-right');    
+            $('.icon-menu').children('i').toggleClass('fa-bars fa-arrow-right');    
         }
 
         let menu = Meny.create({
@@ -34,7 +70,8 @@ function main()
             threshold: 40,
         });
 
-        iconMenu.addEventListener('click', menu.open);
+        $('.icon-menu').on('click', menu.open);
+        $('.link-curriculum').on('click', menu.close);
 
         menu.addEventListener('open', toggleIconMenu);
 
@@ -55,8 +92,8 @@ function main()
          * ainda não entendi pq o maximage precisa disso
          * @param {[type]} window Interface window
          */
-        window.onload = function () 
-        {
+         window.onload = function () 
+         {
             document.querySelector('body').style.display = 'block';
         };
     }
@@ -65,10 +102,11 @@ function main()
      * Aplica o efeito de roll nos links selecionados
      * @return void
      */
-    let rollinkify = function () {
-        
+     let rollinkify = function () 
+     {
+
         let supports3DTransforms =  document.body.style['webkitPerspective'] !== undefined || 
-                                    document.body.style['MozPerspective'] !== undefined;
+        document.body.style['MozPerspective'] !== undefined;
         
         if( supports3DTransforms ) {
 
@@ -90,7 +128,9 @@ function main()
      * Método que inicializa a Classe
      * @return void
      */
-     this.init = function () {
+     let init = function () 
+     {
+
         try {
 
             maximageInit();
@@ -98,12 +138,45 @@ function main()
             set3DMeny('.meny', '.content');
 
             rollinkify();
+
+            curriculum().hide();
         } catch (e) {
             console.error(e);
         }
-     };
+    };
 
-     return this;
+    let curriculum = function ()
+    {
+        return {
+            print: function(printUrl) {
+                printer().print(printUrl);
+            },
+            show: function() {
+                $('.curriculum').show('slow');
+                $('#logo span').html('<a href="javascript:main.curriculum().hide()"><i class="fa fa-close"></i></a>');
+            },
+            hide: function () {
+                $('#logo span').html('r!');
+                $('.curriculum').hide('slow');
+            }
+        }
+    };
+     // Retorna somente os métodos públicos
+     return {
+        init: init,
+        curriculum: curriculum
+    };
 };
 
-main().init();
+let main = new _main();
+
+console.log(main)
+
+main.init();
+
+
+
+
+
+
+
