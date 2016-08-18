@@ -1,12 +1,4 @@
 <!doctype html>
-<!-- 
- 
- TL;DR; LEIA o README
-
-
- Se você está olhando o código fonte talvez tenha interesse em entender como eu desenvolvi... 
-
- -->
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -30,10 +22,10 @@
 
         <div class="meny">
             <!-- <ul class="menu">
-                <li><a class="text-yellow rollinkify" href="#">Sobre</a></li>
-                <li><a class="text-yellow rollinkify" href="#">Projetos</a></li>
-                <li><a class="text-yellow rollinkify" href="#">Ideias</a></li>
-                <li><a class="text-yellow rollinkify" href="#">Blog</a></li>
+                <li><a class="text-yellow linkify" href="#">Sobre</a></li>
+                <li><a class="text-yellow linkify" href="#">Projetos</a></li>
+                <li><a class="text-yellow linkify" href="#">Ideias</a></li>
+                <li><a class="text-yellow linkify" href="#">Blog</a></li>
             </ul> -->
             <p class="bree text-center text-yellow">Onde me encontrar</p>
             <div class="social-icons">
@@ -48,11 +40,30 @@
                 </a>
             </div>
             <ul class="menu">
-                <li><a class="text-yellow rollinkify" href="mailto:rodrigocesarnascimento@gmail.com">rodrigocesarnascimento@gmail.com</a></li>
+                <li><a class="text-yellow linkify link-curriculum" href="javascript:main.curriculum().show()">Curriculum</a></li>
+                <li><a class="text-yellow linkify" href="mailto:rodrigocesarnascimento@gmail.com">rodrigocesarnascimento@gmail.com</a></li>
             </ul>
         </div>
 
         <div class="content">
+            <style>
+                .curriculum {
+                    position: absolute;
+                    left: 631px;
+                    overflow-y: scroll;
+                    max-height: 658px;
+                }
+                .printer-link {
+                    position: absolute;
+                    top: 30px;
+                    left: 45px;
+                    background-color: white;
+                }
+            </style>
+            <div class="curriculum">
+                <!-- <a class="printer-link" href="javascript:main.curriculum().print('curriculum_print.png')">Imprimir</a> -->
+                <img src="img/curriculum.png" alt="">
+            </div>
             <div class="icon-menu"><i class="fa fa-2x fa-bars text-yellow"></i></div>
             <div id="logo">
                 <span class="bree56pt">r!</span>
@@ -60,7 +71,7 @@
             <div class="greeting bree">
                 <span class="text-white-bg">Oi, eu sou o Rodrigo </span><br />
                 <span class="text-white-bg">Tenho 30 anos, sou um Full Stack Developer e moro em São Paulo.</span><br />
-                <span class="text-white-bg">Sou Freelancer e tento desenvolver algumas ideias, tipo a <a class="rollinkify" href="//tradebox.jelasticlw.com.br" target="_blank">BIHP</a>  </span><br />
+                <span class="text-white-bg">Sou Freelancer e tento desenvolver algumas ideias, tipo a <a class="linkify" href="//tradebox.jelasticlw.com.br" target="_blank">BIHP</a>  </span><br />
             </div>
             <div id="background-content">
                 <img src="img/bg/bg_4.jpg" alt="Imagem">
