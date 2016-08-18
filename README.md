@@ -12,7 +12,9 @@
 - jQuery* (I know, but I am a lazy bastard :T) 
 	* jquery.cycle.js
 	* maximage
-- vanilla js
+- vanilla js <3
 
 ## ROADMAP
+	- Criar a página do cv, em html, para a função printer (URGENTE!)
 	- Criar um script semelhante ao cycle e retirar a dependência do jquery
+	
