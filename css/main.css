@@ -273,7 +273,7 @@ ul {
     width: 300px;
 }
 .menu li > .roll span:after {
-    color: #edd311;
+    color: #f1a710;
     background: #222;
     padding: 15px 0px 13px 15px;
     width: 300px;
@@ -290,11 +290,11 @@ ul {
 }
 .social-icons a:hover {
     text-decoration: none;
-    color: #edd311;
+    color: #f1a710;
 }
 .mailto a:hover {
     text-decoration: none;
-    color: #edd311;
+    color: #f1a710;
 }
 .bree {
     font-family: 'Bree Serif', Arial, serif;
@@ -310,7 +310,7 @@ ul {
     width: 100%;
 }
 .text-yellow {
-    color: #edd311;
+    color: #f1a710;
 }
 .text-green {
     color: #5ea734;
@@ -326,9 +326,6 @@ ul {
     background-color: white;
     float: right;
     margin: 45px 45px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
     text-align: center;
 }
 .icon-menu {
@@ -349,7 +346,7 @@ ul {
     position: absolute;
     top: 25px;
     left: 55px;
-    background-color: #edd311;
+    background-color: #f1a710;
     color: #414240;
     padding: 5px;
 }
