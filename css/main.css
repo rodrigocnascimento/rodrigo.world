@@ -8,7 +8,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
+   html {
     color: #222;
     background-color: #222;
     font-size: 1em;
@@ -22,7 +22,7 @@ html {
  * Customize the background color to match your design.
  */
 
-::-moz-selection {
+ ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
@@ -34,7 +34,7 @@ html {
  * A better looking default horizontal rule
  */
 
-hr {
+ hr {
     display: block;
     height: 1px;
     border: 0;
@@ -48,19 +48,19 @@ hr {
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+ audio,
+ canvas,
+ iframe,
+ img,
+ svg,
+ video {
     vertical-align: middle;
 }
 /*
  * Remove default fieldset styles.
  */
 
-fieldset {
+ fieldset {
     border: 0;
     margin: 0;
     padding: 0;
@@ -69,14 +69,14 @@ fieldset {
  * Allow only vertical resizing of textareas.
  */
 
-textarea {
+ textarea {
     resize: vertical;
 }
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
 
-.browserupgrade {
+   .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
@@ -89,7 +89,7 @@ textarea {
  * Hide visually and from screen readers
  */
 
-.hidden {
+ .hidden {
     display: none !important;
 }
 /*
@@ -97,7 +97,7 @@ textarea {
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 
-.visuallyhidden {
+ .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -113,8 +113,8 @@ textarea {
  * https://www.drupal.org/node/897638
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+ .visuallyhidden.focusable:active,
+ .visuallyhidden.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -126,7 +126,7 @@ textarea {
  * Hide visually and from screen readers, but maintain layout
  */
 
-.invisible {
+ .invisible {
     visibility: hidden;
 }
 /*
@@ -141,8 +141,8 @@ textarea {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
+ .clearfix:before,
+ .clearfix:after {
     content: " ";
     /* 1 */
     
@@ -158,7 +158,7 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+   @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
 @media print,
@@ -173,7 +173,7 @@ textarea {
    http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
-@media print {
+   @media print {
     *,
     *:before,
     *:after,
@@ -182,7 +182,7 @@ textarea {
         background: transparent !important;
         color: #000 !important;
         /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        http://www.sanbeiji.com/archives/953 */
         
         box-shadow: none !important;
         text-shadow: none !important;
@@ -201,9 +201,9 @@ textarea {
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-    
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+
+     a[href^="#"]:after,
+     a[href^="javascript:"]:after {
         content: "";
     }
     pre,
@@ -215,8 +215,8 @@ textarea {
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-    
-    thead {
+
+     thead {
         display: table-header-group;
     }
     tr,
@@ -241,7 +241,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-a {
+   a {
     text-decoration: none;
     color: #f1a700;
 }
@@ -316,25 +316,19 @@ ul {
     color: #5ea734;
 }
 .greeting {
-    position: absolute;
-    margin-top: 20%;
-    left: 55px;
+
 }
-#logo {
+.logo {
     width: 74px;
     height: 78px;
-    background-color: white;
     float: right;
-    margin: 45px 45px;
+    margin: 40px 45px;
+    background-color: white;
     text-align: center;
 }
 .icon-menu {
-    margin: 45px 45px;
-    float: left;
+    padding: 40px 25px;
     cursor: pointer;
-}
-.icon-menu > i {
-    margin-left: 35px;
 }
 .meny {
     background-color: #222;
@@ -382,4 +376,31 @@ ul {
     -moz-transform-origin: 100% 0%;
     -webkit-transform: translate3d( 0px, 50px, 0px) rotateX( -90deg);
     -moz-transform: translate3d( 0px, 50px, 0px) rotateX( -90deg);
+}
+
+.curriculum {
+    z-index: 10;
+    margin-left: 100px;
+    position: absolute;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 650px;   
+}
+
+.cv-opts {
+    margin-top: 35px;
+    display: none;
+}
+.cv-download {
+    margin: 50px 0px 50px 0px;
+}
+.cv-download a {
+    padding: 7px 5px;
+    background-color: white;
+}
+
+.cv-acrm a {
+    padding: 7px 5px;   
+    background-color: white;
 }
