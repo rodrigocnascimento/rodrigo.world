@@ -1,47 +1,74 @@
-"use strict";
+// "use strict";
+
+(function () {
+    var Message;
+    Message = function (arg) {
+        this.text = arg.text, this.message_side = arg.message_side;
+        this.draw = function (_this) {
+            return function () {
+                var $message;
+                $message = $($('.message_template').clone().html());
+                $message.addClass(_this.message_side).find('.text').html(_this.text);
+                $('.messages').append($message);
+                return setTimeout(function () {
+                    return $message.addClass('appeared');
+                }, 0);
+            };
+        }(this);
+        return this;
+    };
+    $(function () {
+        var getMessageText, message_side, sendMessage;
+        message_side = 'right';
+        getMessageText = function () {
+            var $message_input;
+            $message_input = $('.message_input');
+            return $message_input.val();
+        };
+        sendMessage = function (text) {
+            var $messages, message;
+            if (text.trim() === '') {
+                return;
+            }
+            $('.message_input').val('');
+            $messages = $('.messages');
+            message_side = message_side === 'left' ? 'right' : 'left';
+            message = new Message({
+                text: text,
+                message_side: message_side
+            });
+            message.draw();
+            return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+        };
+        $('.send_message').click(function (e) {
+            return sendMessage(getMessageText());
+        });
+        $('.message_input').keyup(function (e) {
+            if (e.which === 13) {
+                return sendMessage(getMessageText());
+            }
+        });
+        sendMessage('Hello Philip! :)');
+        setTimeout(function () {
+            return sendMessage('Hi Sandy! How are you?');
+        }, 1000);
+        return setTimeout(function () {
+            return sendMessage('I\'m fine, thank you!');
+        }, 2000);
+    });
+}.call(this));
+
+
+
+
+
+
 /**
  * main Object
  * @return this
  */
  let _main = function ()
  {
-    
-    let printer = function () {
-        let printerWidth;
-
-        function closePrint() {
-            document.body.removeChild(this.__container__);
-        }
-
-        function setPrint() {
-            this.contentWindow.__container__ = this;
-
-            this.contentWindow.onbeforeunload = closePrint;
-            this.contentWindow.onafterprint = closePrint;
-            this.contentWindow.document.body.style.width = printerWidth;
-            this.contentWindow.focus(); // Required for IE
-            this.contentWindow.print();
-        }
-
-        return {
-            print: function (sURL, bodyWidth) {
-                console.log([sURL, bodyWidth])
-                const oHiddenFrame = document.createElement("iframe");
-                printerWidth = bodyWidth;
-                oHiddenFrame.onload = setPrint;
-                oHiddenFrame.style.visibility = "hidden";
-                oHiddenFrame.style.position = "fixed";
-                oHiddenFrame.style.right = "0";
-                oHiddenFrame.style.bottom = "0";
-                oHiddenFrame.src = sURL;
-
-                if (sURL !== undefined) {
-                    document.body.appendChild(oHiddenFrame);
-                }
-
-            }
-        }
-    }    
 
     /**
      * Aplicação do efeito 3d no menu
@@ -54,7 +81,6 @@
 
         let toggleIconMenu = function () 
         {
-
             $('.icon-menu').children('i').toggleClass('fa-bars fa-arrow-right');    
         }
 
@@ -139,7 +165,7 @@
 
             rollinkify();
 
-            curriculum().hide();
+            // curriculum().hide();
         } catch (e) {
             console.error(e);
         }
@@ -148,16 +174,15 @@
     let curriculum = function ()
     {
         return {
-            print: function(printUrl) {
-                printer().print(printUrl);
-            },
             show: function() {
-                $('.curriculum').show('slow');
-                $('#logo span').html('<a href="javascript:main.curriculum().hide()"><i class="fa fa-close"></i></a>');
+                $('.curriculum').slideDown();
+                $('.cv-opts').slideDown();
+                $('.logo span').html('<a href="javascript:main.curriculum().hide()"><i class="fa fa-close"></i></a>');
             },
             hide: function () {
-                $('#logo span').html('r!');
-                $('.curriculum').hide('slow');
+                $('.curriculum').slideUp();
+                $('.cv-opts').slideUp();
+                $('.logo span').html('r!');
             }
         }
     };
@@ -169,14 +194,4 @@
 };
 
 let main = new _main();
-
-console.log(main)
-
 main.init();
-
-
-
-
-
-
-
