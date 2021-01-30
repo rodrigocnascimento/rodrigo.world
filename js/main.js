@@ -1,197 +1,70 @@
-// "use strict";
-
-(function () {
-    var Message;
-    Message = function (arg) {
-        this.text = arg.text, this.message_side = arg.message_side;
-        this.draw = function (_this) {
-            return function () {
-                var $message;
-                $message = $($('.message_template').clone().html());
-                $message.addClass(_this.message_side).find('.text').html(_this.text);
-                $('.messages').append($message);
-                return setTimeout(function () {
-                    return $message.addClass('appeared');
-                }, 0);
-            };
-        }(this);
-        return this;
-    };
-    $(function () {
-        var getMessageText, message_side, sendMessage;
-        message_side = 'right';
-        getMessageText = function () {
-            var $message_input;
-            $message_input = $('.message_input');
-            return $message_input.val();
-        };
-        sendMessage = function (text) {
-            var $messages, message;
-            if (text.trim() === '') {
-                return;
-            }
-            $('.message_input').val('');
-            $messages = $('.messages');
-            message_side = message_side === 'left' ? 'right' : 'left';
-            message = new Message({
-                text: text,
-                message_side: message_side
-            });
-            message.draw();
-            return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-        };
-        $('.send_message').click(function (e) {
-            return sendMessage(getMessageText());
-        });
-        $('.message_input').keyup(function (e) {
-            if (e.which === 13) {
-                return sendMessage(getMessageText());
-            }
-        });
-        sendMessage('Hello Philip! :)');
-        setTimeout(function () {
-            return sendMessage('Hi Sandy! How are you?');
-        }, 1000);
-        return setTimeout(function () {
-            return sendMessage('I\'m fine, thank you!');
-        }, 2000);
-    });
-}.call(this));
-
-
-
-
-
+'use strict'
 
 /**
- * main Object
- * @return this
+ * Aplicação do efeito 3d no menu
+ * @param  {[String]} menuSelector    Elemento que será aplicado o meu
+ * @param  {[String]} contentSelector Elemento que contém o conteúdo
+ * @return {[Meny menu]}
  */
- let _main = function ()
- {
+function meny(menuSelector, contentSelector) {
+  return Meny.create({
+    // The element that will be animated in from off screen
+    menuElement: document.querySelector(menuSelector),
 
-    /**
-     * Aplicação do efeito 3d no menu
-     * @param  {[String]} menuSelector    Elemento que será aplicado o meu
-     * @param  {[String]} contentSelector Elemento que contém o conteúdo
-     * @return {[Void]}
-     */
-     let set3DMeny = function (menuSelector, contentSelector)
-     {
+    // The contents that gets pushed aside while Meny is active
+    contentsElement: document.querySelector(contentSelector),
 
-        let toggleIconMenu = function () 
-        {
-            $('.icon-menu').children('i').toggleClass('fa-bars fa-arrow-right');    
-        }
+    // The alignment of the menu (top/right/bottom/left)
+    position: 'left',
+    threshold: 40,
+  })
+}
 
-        let menu = Meny.create({
-            // The element that will be animated in from off screen
-            menuElement: document.querySelector(menuSelector),
+/**
+ * Aplica o efeito de roll nos links selecionados
+ * @param  {[String]} selector Elemento que será aplicado efeito de rolagem no link
+ * @return void
+ */
+function linkify(selector) {
+  if (!document.body.style['perspective']) {
+    throw '[rollinkify] Property document.body.style.perspective not supported'
+  }
 
-            // The contents that gets pushed aside while Meny is active
-            contentsElement: document.querySelector(contentSelector),
+  let nodes = document.querySelectorAll(selector)
 
-            // The alignment of the menu (top/right/bottom/left)
-            position: 'left',
-            threshold: 40,
-        });
+  for (let i = 0, len = nodes.length; i < len; i++) {
+    let node = nodes[i]
+    node.innerHTML =
+      '<span data-title="' + node.text + '">' + node.innerHTML + '</span>'
+  }
+}
 
-        $('.icon-menu').on('click', menu.open);
-        $('.link-curriculum').on('click', menu.close);
+/**
+ * Muda o icone do menu de acordo com o array passado
+ * @param  {String} selector Elemento que terá as classes trocadas
+ * @param  {Array} classes Classes a serem trocadas
+ * @return void
+ */
+function toggleIcon(element, classes) {
+  classes.forEach((className) => element.classList.toggle(className))
+}
 
-        menu.addEventListener('open', toggleIconMenu);
+try {
+  const menu = meny('#meny', '#content')
 
-        menu.addEventListener('closed', toggleIconMenu);
-    }
+  let hamburguerMenu = document.querySelector('#menu-hamburguer > i')
 
-    let maximageInit = function ()
-    {
+  const toggleHamburguerMenu = function () {
+    toggleIcon(hamburguerMenu, ['fa-arrow-right', 'fa-bars'])
+  }
 
-        $("#background-content").maximage({
-            cycleOptions: {
-                speed: 800,
-                timeout: 8000
-            }
-        });
+  hamburguerMenu.addEventListener('click', () => menu.open())
 
-        /**
-         * ainda não entendi pq o maximage precisa disso
-         * @param {[type]} window Interface window
-         */
-         window.onload = function () 
-         {
-            document.querySelector('body').style.display = 'block';
-        };
-    }
+  menu.addEventListener('open', toggleHamburguerMenu)
 
-    /**
-     * Aplica o efeito de roll nos links selecionados
-     * @return void
-     */
-     let rollinkify = function () 
-     {
+  menu.addEventListener('close', toggleHamburguerMenu)
 
-        let supports3DTransforms =  document.body.style['webkitPerspective'] !== undefined || 
-        document.body.style['MozPerspective'] !== undefined;
-        
-        if( supports3DTransforms ) {
-
-            let nodes = document.querySelectorAll('.linkify');
-
-            for(let  i = 0, len = nodes.length; i < len; i++ ) {
-                let node = nodes[i];
-
-                if( !node.className || !node.className.match( /roll/g ) ) {
-                    node.className += ' roll';
-                    node.innerHTML = '<span data-title="'+ node.text +'">' + node.innerHTML + '</span>';
-                }
-            };
-        }
-    };
-
-
-    /**
-     * Método que inicializa a Classe
-     * @return void
-     */
-     let init = function () 
-     {
-
-        try {
-
-            maximageInit();
-
-            set3DMeny('.meny', '.content');
-
-            rollinkify();
-
-            // curriculum().hide();
-        } catch (e) {
-            console.error(e);
-        }
-    };
-
-    let curriculum = function ()
-    {
-        return {
-            show: function() {
-                $('.curriculum').slideDown();
-                $('.cv-opts').slideDown();
-                $('.logo span').html('<a href="javascript:main.curriculum().hide()"><i class="fa fa-close"></i></a>');
-            },
-            hide: function () {
-                $('.curriculum').slideUp();
-                $('.cv-opts').slideUp();
-                $('.logo span').html('r!');
-            }
-        }
-    };
-     // Retorna somente os métodos públicos
-     return {
-        init: init,
-        curriculum: curriculum
-    };
-};
-
-let main = new _main();
-main.init();
+  linkify('.linkify')
+} catch (e) {
+  console.error(e)
+}

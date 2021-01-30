@@ -1,13 +1,25 @@
 {
-  "name": "no-skeleton.docpad",
+  "name": "rodrigoi.wtf",
   "version": "0.1.0",
-  "description": "New DocPad project without using a skeleton",
+  "description": "My personal website",
   "dependencies": {
-    "docpad": "~6.78.6",
-    "docpad-plugin-ghpages": "~2.4.4"
+    "httpster": "^1.1.0"
   },
-  "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "start": "node_modules/.bin/docpad-server"
+    "start": "$(npm bin)/httpster ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigocnascimento/rodrigocnascimento.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigocnascimento/rodrigocnascimento.github.io/issues"
+  },
+  "homepage": "https://github.com/rodrigocnascimento/rodrigocnascimento.github.io#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
