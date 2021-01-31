@@ -53,12 +53,15 @@ try {
   const menu = meny('#meny', '#content')
 
   let hamburguerMenu = document.querySelector('#menu-hamburguer > i')
+  const thx1138 = document.querySelector('#thx1138')
 
   const toggleHamburguerMenu = function () {
     toggleIcon(hamburguerMenu, ['fa-arrow-right', 'fa-bars'])
   }
 
   hamburguerMenu.addEventListener('click', () => menu.open())
+  thx1138.addEventListener('mouseover', (e) => (e.target.innerHTML = 'r?'))
+  thx1138.addEventListener('mouseout', (e) => (e.target.innerHTML = 'r!'))
 
   menu.addEventListener('open', toggleHamburguerMenu)
 

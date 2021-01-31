@@ -164,3 +164,7 @@ ul {
   -moz-transform: translate3d(0px, 50px, 0px) rotateX(-90deg);
   transform: translate3d(0px, 50px, 0px) rotateX(-90deg);
 }
+
+#logo {
+  cursor: pointer;
+}
