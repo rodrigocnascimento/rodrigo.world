@@ -27,16 +27,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm i
-
-      - name: Build
-        run: npm build
-
       - name: Deploy
         uses: reggionick/s3-deploy@v3
         with:
-          folder: dist
+          folder: src
           bucket: ${{ secrets.S3_BUCKET }}
           bucket-region: ${{ secrets.S3_BUCKET_REGION }}
           dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
