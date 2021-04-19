@@ -3,10 +3,7 @@
 html,
 body {
   height: 100%;
-}
-
-body {
-  background-color: rgb(168, 168, 168);
+  background-color: #252525;
   font-family: 'Bree Serif', Arial, serif;
   font-weight: 400;
 }
@@ -25,41 +22,14 @@ ul {
   padding: 0;
   margin: 0;
 }
-/*  MENU */
-#meny {
-  height: 100%;
-  background-color: #222;
-}
-
-.menu {
-  list-style-type: none;
-}
-
-.menu li a {
-  width: 300px;
-  text-decoration: none;
-  color: white;
-}
-
-.menu li > .linkify span {
-  cursor: pointer;
-  padding: 15px 0px 13px 15px;
-  width: 300px;
-}
-.menu li > .linkify:hover span {
-  padding: 15px 0px 13px 15px;
-  width: 300px;
-}
-.menu li > .linkify span:after {
-  color: #f1a710;
-  background: #222;
-  padding: 15px 0px 13px 15px;
-  width: 300px;
-}
 
 .menu-contact {
   background-color: #3a3a3a;
   margin-top: 40px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .menu-contact a {
   color: #737373;
@@ -73,11 +43,6 @@ ul {
   color: #f1a700;
 }
 
-/* CONTENT */
-#content {
-  background-color: #222;
-  height: 100%;
-}
 .hello-world {
   padding: 40px 50px;
 }
@@ -94,11 +59,6 @@ ul {
   text-align: center;
   margin: 25px;
   background-color: white;
-}
-#menu-hamburguer {
-  padding: 40px 25px;
-  cursor: pointer;
-  float: left;
 }
 /* MISC TEXT */
 .text-center {
@@ -167,4 +127,18 @@ ul {
 
 #logo {
   cursor: pointer;
+}
+
+#latest-articles {
+  padding: 40px 50px;
+}
+#articles {
+  list-style-type: none;
+}
+
+#latest-articles-title {
+  padding: 40px 50px;
+}
+.article-link {
+  background: white;
 }

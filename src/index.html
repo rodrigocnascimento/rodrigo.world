@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-KMXGHPW')
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Rodrigo.WTF</title>
+    <title>rodrigo.world</title>
     <meta
       name="description"
       content="Rodrigo Nascimento is an experienced Software Enginner using NodeJS and AWS to ship awesome products on Internet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="css/fontawesome-min.css" />
+    <script
+      src="https://kit.fontawesome.com/95bce97792.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/custom.css" />
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KMXGHPW"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -24,77 +50,54 @@
       </p>
     <![endif]-->
 
-    <div id="meny">
-      <div class="menu-contact">
-        <a href="//github.com/rodrigocnascimento" target="_blank">
-          <i class="fab fa-2x fa-github-alt"></i>
-        </a>
-        <a href="//twitter.com/codewalker_" target="_blank">
-          <i class="fab fa-2x fa-twitter"></i>
-        </a>
-        <a href="//linkedin.com/in/rodrigocesarnascimento" target="_blank">
-          <i class="fab fa-2x fa-linkedin"></i>
-        </a>
-        <a href="//facebook.com/rodrigorasec" target="_blank">
-          <i class="fab fa-2x fa-facebook-f"></i>
-        </a>
+    <header id="header">
+      <div id="logo">
+        <span id="thx1138" class="text-56pt">r!</span>
       </div>
-      <ul class="menu">
-        <li>
+    </header>
+    <main id="main">
+      <div class="hello-world">
+        <span class="text-white-bg">Welcome to rodrigo.world!</span><br />
+        <br />
+        <span class="text-white-bg">
+          curto desenvolver algumas ideias tipo
           <a
-            class="text-yellow linkify"
+            class="linkify"
             href="https://rodrigocnascimento.github.io/replicant"
+            target="_blank"
           >
-            replicant
+            replicant - just another droid
           </a>
-        </li>
-        <li>
+          ou criar uns scripts
           <a
-            class="text-yellow linkify"
+            class="linkify"
             href="https://github.com/rodrigocnascimento/yoga-files"
+            target="_blank"
           >
             yoga files
           </a>
-        </li>
-      </ul>
-    </div>
+        </span>
+      </div>
+      <div id="latest-articles">
+        <h2 class="text-white">Últimos posts</h2>
+        <ul id="articles"></ul>
+      </div>
+    </main>
+    <footer class="menu-contact">
+      <a href="//github.com/rodrigocnascimento" target="_blank">
+        <i class="fab fa-2x fa-github-alt"></i>
+      </a>
+      <a href="//twitter.com/codewalker_" target="_blank">
+        <i class="fab fa-2x fa-twitter"></i>
+      </a>
+      <a href="//linkedin.com/in/rodrigocesarnascimento" target="_blank">
+        <i class="fab fa-2x fa-linkedin"></i>
+      </a>
+      <a href="//facebook.com/rodrigorasec" target="_blank">
+        <i class="fab fa-2x fa-facebook-f"></i>
+      </a>
+    </footer>
 
-    <div id="content">
-      <header id="header">
-        <div id="menu-hamburguer">
-          <i class="fa fa-2x fa-bars text-yellow"></i>
-        </div>
-        <div id="logo">
-          <span id="thx1138" class="text-56pt">r!</span>
-        </div>
-      </header>
-      <main id="main">
-        <div class="hello-world">
-          <span class="text-white-bg">rodrigo.wtf</span><br />
-          <br />
-          <span class="text-white-bg">
-            curto desenvolver algumas ideias tipo
-            <a
-              class="linkify"
-              href="https://rodrigocnascimento.github.io/replicant"
-              target="_blank"
-            >
-              replicant - just another droid
-            </a>
-            ou criar uns scripts
-            <a
-              class="linkify"
-              href="https://github.com/rodrigocnascimento/yoga-files"
-              target="_blank"
-            >
-              yoga files
-            </a>
-          </span>
-        </div>
-      </main>
-    </div>
-
-    <script src="js/meny.js"></script>
     <script src="js/main.js"></script>
     <script>
       ;(function (b, o, i, l, e, r) {
