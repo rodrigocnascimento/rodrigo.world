@@ -1,26 +1,6 @@
 'use strict'
 
 /**
- * Aplicação do efeito 3d no menu
- * @param  {[String]} menuSelector    Elemento que será aplicado o meu
- * @param  {[String]} contentSelector Elemento que contém o conteúdo
- * @return {[Meny menu]}
- */
-function meny(menuSelector, contentSelector) {
-  return Meny.create({
-    // The element that will be animated in from off screen
-    menuElement: document.querySelector(menuSelector),
-
-    // The contents that gets pushed aside while Meny is active
-    contentsElement: document.querySelector(contentSelector),
-
-    // The alignment of the menu (top/right/bottom/left)
-    position: 'left',
-    threshold: 40,
-  })
-}
-
-/**
  * Aplica o efeito de roll nos links selecionados
  * @param  {[String]} selector Elemento que será aplicado efeito de rolagem no link
  * @return void
@@ -39,6 +19,29 @@ function linkify(selector) {
   }
 }
 
+function getLatestArticles() {
+  let articlesDOM = document.querySelector('#articles')
+  fetch('https://dev.to/api/articles?username=rodrigocnascimento').then(
+    async (articlesResponse) => {
+      const articles = await articlesResponse.json()
+
+      for (let article of articles) {
+        let articleElement = document.createElement('li')
+        let articleLink = document.createElement('a')
+        const articlePublishedISODate = new Intl.DateTimeFormat('pt-br').format(
+          article.published_date
+        )
+
+        articleLink.href = article.url
+        articleLink.innerText = `${articlePublishedISODate} - ${article.title}`
+        articleLink.className = 'article-link linkify'
+        articleElement.appendChild(articleLink)
+        articlesDOM.appendChild(articleElement)
+      }
+      linkify('.linkify')
+    }
+  )
+}
 /**
  * Muda o icone do menu de acordo com o array passado
  * @param  {String} selector Elemento que terá as classes trocadas
@@ -50,22 +53,12 @@ function toggleIcon(element, classes) {
 }
 
 try {
-  const menu = meny('#meny', '#content')
-
-  let hamburguerMenu = document.querySelector('#menu-hamburguer > i')
   const thx1138 = document.querySelector('#thx1138')
 
-  const toggleHamburguerMenu = function () {
-    toggleIcon(hamburguerMenu, ['fa-arrow-right', 'fa-bars'])
-  }
-
-  hamburguerMenu.addEventListener('click', () => menu.open())
   thx1138.addEventListener('mouseover', (e) => (e.target.innerHTML = 'r?'))
   thx1138.addEventListener('mouseout', (e) => (e.target.innerHTML = 'r!'))
 
-  menu.addEventListener('open', toggleHamburguerMenu)
-
-  menu.addEventListener('close', toggleHamburguerMenu)
+  getLatestArticles()
 
   linkify('.linkify')
 } catch (e) {
