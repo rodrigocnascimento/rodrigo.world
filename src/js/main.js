@@ -6,10 +6,6 @@
  * @return void
  */
 function linkify(selector) {
-  if (!document.body.style['perspective']) {
-    throw '[rollinkify] Property document.body.style.perspective not supported'
-  }
-
   let nodes = document.querySelectorAll(selector)
 
   for (let i = 0, len = nodes.length; i < len; i++) {
