@@ -1,20 +1,9 @@
-### Plugins ou ferramentas utilizadas
+### Hello! 👋
 
-- [HTML5Boilerplate](https://html5boilerplate.com/)
+Well it's been six years since I just writed the first lines of this website.
 
-### CSS
-- Normalize
-- Font Awesome
+Although I drag myself between code and bits & bytes long enough to have been rewriten this a lot of times. That time was just another one, as ususal.
 
-### JS
-- Modernizr
-- [http://lab.hakim.se/meny](http://lab.hakim.se/meny) Vale a pena ser visitado por esse menu maneiro e outros projeto muito bons dele.
-- jQuery* (I know, but I am a lazy bastard :T) 
-	* jquery.cycle.js
-	* maximage
-- vanilla js <3
+This I just a kind note to myself to seize the time that I'm on right now and respect my space.
 
-## ROADMAP
-	- Criar a página do cv, em html, para a função printer (URGENTE!)
-	- Criar um script semelhante ao cycle e retirar a dependência do jquery
-	
+Peace out.
