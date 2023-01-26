@@ -25,7 +25,7 @@ function getLatestArticles() {
         let articleElement = document.createElement('li')
         let articleLink = document.createElement('a')
         const articlePublishedISODate = new Intl.DateTimeFormat('pt-br').format(
-          article.published_date
+          new Date(article.created_at).getTime()
         )
 
         articleLink.href = article.url
